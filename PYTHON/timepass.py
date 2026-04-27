@@ -1,0 +1,1 @@
+print("SIMAR MOTU")

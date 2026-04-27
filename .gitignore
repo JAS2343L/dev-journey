@@ -1,0 +1,11 @@
+# folders
+bin/
+.idea/
+.vscode/
+out/
+venv/
+.venv/
+**/.idea/
+#files 
+Visual-Studio-Code.iml
+
