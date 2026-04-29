@@ -18,7 +18,7 @@ public class GUI5_CALCULATOR_ADVANCED {
         //Text Field:
 
         JTextField txtfield = new JTextField();
-        txtfield.setBounds(44, 100, 280, 60);
+        txtfield.setBounds(30, 100, 320, 60);
         txtfield.setFont(new Font("ubuntu", Font.BOLD , 29));
         txtfield.setEditable(false);
         txtfield.setHorizontalAlignment(JTextField.RIGHT);
@@ -26,7 +26,7 @@ public class GUI5_CALCULATOR_ADVANCED {
         //My name:
 
         JLabel me = new JLabel("Made By Jasmeet(JAS2343L)");
-        me.setBounds(90, 560, 200, 99);
+        me.setBounds(70, 560, 200, 99);
         me.setFont(new Font("ubuntu", Font.BOLD, 13));
 
 
@@ -82,10 +82,27 @@ public class GUI5_CALCULATOR_ADVANCED {
         b0.addActionListener(e -> txtfield.setText(txtfield.getText()+"0"));
         b0.setFont(new Font("ubuntu", Font.BOLD, 22));
 
+        JButton b00 = new JButton("00");
+        b00.setBounds(30, 520, 70, 70);
+        b00.addActionListener(e -> txtfield.setText(txtfield.getText()+"00"));
+        b00.setFont(new Font("ubuntu", Font.BOLD, 22));
+
         //Operators
         JButton plus = new JButton("+");
-        plus.setBounds(280, 200, 70, 70);
+        plus.setBounds(280, 280, 70, 70);
         plus.setFont(new Font("ubuntu", Font.BOLD, 22));
+        
+        JButton minus = new JButton("-");
+        minus.setBounds(280, 360, 70, 70);
+        minus.setFont(new Font("ubuntu", Font.BOLD, 22));
+
+        JButton multiply = new JButton("*");
+        multiply.setBounds(280, 440, 70, 70);
+        multiply.setFont(new Font("ubuntu", Font.BOLD, 22));
+        
+        JButton divide = new JButton("/");
+        divide.setBounds(280, 520, 70, 70);
+        divide.setFont(new Font("ubuntu", Font.BOLD, 22));
 
 
         //clear, Buttons:
@@ -111,11 +128,11 @@ public class GUI5_CALCULATOR_ADVANCED {
         gui.add(txtfield);
 
 
-        gui.add(c) ;gui.add(backspace);        gui.add(plus);
-        gui.add(b7);gui.add(b8);gui.add(b9);  //gui.add();
-        gui.add(b4);gui.add(b5);gui.add(b6);
-        gui.add(b3);gui.add(b2);gui.add(b1);
-                    gui.add(b0);
+        gui.add(c) ;gui.add(backspace);             gui.add(plus);
+        gui.add(b7);gui.add(b8);gui.add(b9);   gui.add(minus);
+        gui.add(b4);gui.add(b5);gui.add(b6);   gui.add(multiply);
+        gui.add(b3);gui.add(b2);gui.add(b1);   gui.add(divide);
+        gui.add(b00);gui.add(b0);
 
         gui.add(me);
 
