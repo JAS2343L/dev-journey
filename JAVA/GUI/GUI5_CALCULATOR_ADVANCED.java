@@ -188,7 +188,12 @@ public class GUI5_CALCULATOR_ADVANCED {
                 case '+': result = num1 + num2; break;
                 case '-':  result = num1 -  num2; break;
                 case '*':  result = num1 *  num2; break;
-                case '/':  try  {result =  num1 /  num2; break;}  catch(ArithmeticException v)  {System.out.println();}
+                case '/':  try  {
+                    if(num2 == 0){
+                        txtfield.setText("ERROR!! press C");
+                    }else{result =  num1 /  num2;}
+                    break;}  
+                    catch(ArithmeticException v)  {System.out.println();}
             }
             txtfield.setText(String.valueOf(result));
             showoperator.setText("=");
