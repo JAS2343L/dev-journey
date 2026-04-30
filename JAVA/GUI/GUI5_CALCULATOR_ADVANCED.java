@@ -176,19 +176,30 @@ public class GUI5_CALCULATOR_ADVANCED {
         equal.setFont(new Font("ubuntu", Font.BOLD, 22));
         equal.addActionListener(e -> {
             try{
-            num2 = Integer.parseInt(txtfield.getText());
+            String number = txtfield.getText();
+
+            if(!number.equals(String.valueOf(result))){
+                num2 = Integer.parseInt(txtfield.getText());
+                num3 = num2;
+            }else{
+                num2 = num3;
+            }
             switch (operator){
                 case '+': result = num1 + num2; break;
                 case '-':  result = num1 -  num2; break;
                 case '*':  result = num1 *  num2; break;
-                case '/':  result = num1 /  num2; break;
+                case '/':  try  {result = num1 /  num2; break;}  catch(ArithmeticException v)  {System.out.println();}
             }
             txtfield.setText(String.valueOf(result));
+            showoperator.setText("=");
             num1 = result;
         }catch (java.lang.NumberFormatException v){
             System.out.println();
+        }catch (Exception v){
+            System.out.println();
         }
-        });
+        }
+    );
 
 
 
@@ -199,7 +210,10 @@ public class GUI5_CALCULATOR_ADVANCED {
 
         JButton c = new JButton("C");
         c.setBounds(30, 200, 70, 70);
-        c.addActionListener(e -> txtfield.setText(""));
+        c.addActionListener(e -> {
+            txtfield.setText("");
+            showoperator.setText("");
+        });
         c.setFont(new Font("ubuntu", Font.BOLD, 22));
 
         JButton backspace = new JButton ("⌫");
