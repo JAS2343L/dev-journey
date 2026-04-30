@@ -5,7 +5,7 @@ import java.awt.Font;
 
 public class GUI5_CALCULATOR_ADVANCED {
 
-    static int num1 = 0, num2 = 0, num3 = 0, result = 0;
+    static double num1 = 0, num2 = 0, num3 = 0, result = 0;
     char operator;
 
     JLabel showoperator = new JLabel("");
@@ -112,7 +112,7 @@ public class GUI5_CALCULATOR_ADVANCED {
         plus.setFont(new Font("ubuntu", Font.BOLD, 22));
         plus.addActionListener(e -> {
             try{
-                    num1 =Integer.parseInt(txtfield.getText());
+                    num1 =Double.parseDouble(txtfield.getText());
                     operator = '+';
                     txtfield.setText("");
                     showoperator.setText("+");
@@ -128,7 +128,7 @@ public class GUI5_CALCULATOR_ADVANCED {
         minus.setFont(new Font("ubuntu", Font.BOLD, 22));
         minus.addActionListener(e -> {
             try{
-                    num1 = Integer.parseInt(txtfield.getText());
+                    num1 = Double.parseDouble(txtfield.getText());
                     operator = '-';
                     txtfield.setText("");
                     showoperator.setText("-");
@@ -144,7 +144,7 @@ public class GUI5_CALCULATOR_ADVANCED {
         multiply.setFont(new Font("ubuntu", Font.BOLD, 22));
         multiply.addActionListener(e -> {
             try{
-                    num1 = Integer.parseInt(txtfield.getText());
+                    num1 = Double.parseDouble(txtfield.getText());
                     operator = '*';
                     txtfield.setText("");
                     showoperator.setText("*");
@@ -160,7 +160,7 @@ public class GUI5_CALCULATOR_ADVANCED {
         divide.setFont(new Font("ubuntu", Font.BOLD, 22));
         divide.addActionListener(e -> {
             try{
-                    num1 = Integer.parseInt(txtfield.getText());
+                    num1 = Double.parseDouble(txtfield.getText());
                     operator = '/';
                     txtfield.setText("");
                     showoperator.setText("/");
@@ -179,7 +179,7 @@ public class GUI5_CALCULATOR_ADVANCED {
             String number = txtfield.getText();
 
             if(!number.equals(String.valueOf(result))){
-                num2 = Integer.parseInt(txtfield.getText());
+                num2 = Double.parseDouble(txtfield.getText());
                 num3 = num2;
             }else{
                 num2 = num3;
@@ -188,7 +188,7 @@ public class GUI5_CALCULATOR_ADVANCED {
                 case '+': result = num1 + num2; break;
                 case '-':  result = num1 -  num2; break;
                 case '*':  result = num1 *  num2; break;
-                case '/':  try  {result = num1 /  num2; break;}  catch(ArithmeticException v)  {System.out.println();}
+                case '/':  try  {result =  num1 /  num2; break;}  catch(ArithmeticException v)  {System.out.println();}
             }
             txtfield.setText(String.valueOf(result));
             showoperator.setText("=");
