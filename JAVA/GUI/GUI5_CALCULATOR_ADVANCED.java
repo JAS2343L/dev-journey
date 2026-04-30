@@ -5,14 +5,24 @@ import java.awt.Font;
 
 public class GUI5_CALCULATOR_ADVANCED {
 
-    static int number1 = 0;
+    static int num1 = 0, num2 = 0, num3 = 0, result = 0;
+    char operator;
+
+    JLabel showoperator = new JLabel("");
     
       GUI5_CALCULATOR_ADVANCED() {
+
+        showoperator.setBounds(300,40,100,30);
+        showoperator.setFont(new Font("ubuntu", Font.BOLD, 22));
+
+
 
 
         //New Window:
 
         JFrame gui = new JFrame("calculator");
+
+
 
 
         //Text Field:
@@ -23,11 +33,16 @@ public class GUI5_CALCULATOR_ADVANCED {
         txtfield.setEditable(false);
         txtfield.setHorizontalAlignment(JTextField.RIGHT);
 
+
+
+
         //My name:
 
         JLabel me = new JLabel("Made By Jasmeet(JAS2343L)");
-        me.setBounds(70, 560, 200, 99);
+        me.setBounds(96, 560, 200, 99);
         me.setFont(new Font("ubuntu", Font.BOLD, 13));
+
+
 
 
         //buttons:
@@ -87,22 +102,97 @@ public class GUI5_CALCULATOR_ADVANCED {
         b00.addActionListener(e -> txtfield.setText(txtfield.getText()+"00"));
         b00.setFont(new Font("ubuntu", Font.BOLD, 22));
 
+
+
+
         //Operators
+
         JButton plus = new JButton("+");
         plus.setBounds(280, 280, 70, 70);
         plus.setFont(new Font("ubuntu", Font.BOLD, 22));
+        plus.addActionListener(e -> {
+            try{
+                    num1 =Integer.parseInt(txtfield.getText());
+                    operator = '+';
+                    txtfield.setText("");
+                    showoperator.setText("+");
+            }catch(java.lang.NumberFormatException v){
+                showoperator.setText("+");
+            }
+        });
+
+
         
         JButton minus = new JButton("-");
         minus.setBounds(280, 360, 70, 70);
         minus.setFont(new Font("ubuntu", Font.BOLD, 22));
+        minus.addActionListener(e -> {
+            try{
+                    num1 = Integer.parseInt(txtfield.getText());
+                    operator = '-';
+                    txtfield.setText("");
+                    showoperator.setText("-");
+            }catch(java.lang.NumberFormatException v){
+                showoperator.setText("-");
+            }
+        });
+
+
 
         JButton multiply = new JButton("*");
         multiply.setBounds(280, 440, 70, 70);
         multiply.setFont(new Font("ubuntu", Font.BOLD, 22));
+        multiply.addActionListener(e -> {
+            try{
+                    num1 = Integer.parseInt(txtfield.getText());
+                    operator = '*';
+                    txtfield.setText("");
+                    showoperator.setText("*");
+            }catch(java.lang.NumberFormatException v){
+                showoperator.setText("*");
+            }
+        });
+
+
         
         JButton divide = new JButton("/");
         divide.setBounds(280, 520, 70, 70);
         divide.setFont(new Font("ubuntu", Font.BOLD, 22));
+        divide.addActionListener(e -> {
+            try{
+                    num1 = Integer.parseInt(txtfield.getText());
+                    operator = '/';
+                    txtfield.setText("");
+                    showoperator.setText("/");
+            }catch(java.lang.NumberFormatException v){
+                showoperator.setText("/");
+            }
+        });
+
+
+
+        JButton equal = new JButton("=");          //THE MAIN Equal Button..../.
+        equal.setBounds(190, 520, 70, 70);
+        equal.setFont(new Font("ubuntu", Font.BOLD, 22));
+        equal.addActionListener(e -> {
+            try{
+            num2 = Integer.parseInt(txtfield.getText());
+            switch (operator){
+                case '+': result = num1 + num2; break;
+                case '-':  result = num1 -  num2; break;
+                case '*':  result = num1 *  num2; break;
+                case '/':  result = num1 /  num2; break;
+            }
+            txtfield.setText(String.valueOf(result));
+            num1 = result;
+        }catch (java.lang.NumberFormatException v){
+            System.out.println();
+        }
+        });
+
+
+
+
 
 
         //clear, Buttons:
@@ -125,23 +215,31 @@ public class GUI5_CALCULATOR_ADVANCED {
 
         //adding all in one window:
 
+        gui.add(showoperator);
         gui.add(txtfield);
 
 
-        gui.add(c) ;gui.add(backspace);             gui.add(plus);
-        gui.add(b7);gui.add(b8);gui.add(b9);   gui.add(minus);
-        gui.add(b4);gui.add(b5);gui.add(b6);   gui.add(multiply);
-        gui.add(b3);gui.add(b2);gui.add(b1);   gui.add(divide);
-        gui.add(b00);gui.add(b0);
+        gui.add(c) ;gui.add(backspace);    
+                                                                                   gui.add(plus);
+        gui.add(b7);  gui.add(b8);gui.add(b9);   gui.add(minus);
+        gui.add(b4);  gui.add(b5);gui.add(b6);   gui.add(multiply);
+        gui.add(b3);  gui.add(b2);gui.add(b1);   gui.add(divide);
+        gui.add(b00);gui.add(b0);                          gui.add(equal);
 
         gui.add(me);
 
+
+
+
+
+
         //Gui Window:
 
-        gui.setSize(370, 620);
+        gui.setSize(380, 620);
         gui.setLayout(null);
         gui.setLocationRelativeTo(null);
         gui.setResizable(false);
+        gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gui.setVisible(true);
     }
 
