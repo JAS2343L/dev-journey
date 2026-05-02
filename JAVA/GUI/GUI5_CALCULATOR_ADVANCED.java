@@ -1,12 +1,14 @@
 package GUI;
 import javax.swing.*;
-import java.awt.event.*;
+//import java.awt.event.*;
 import java.awt.Font;
 
 public class GUI5_CALCULATOR_ADVANCED {
 
     static double num1 = 0, num2 = 0, num3 = 0, result = 0;
     char operator;
+
+   
 
     JLabel showoperator = new JLabel("");
     
@@ -34,7 +36,7 @@ public class GUI5_CALCULATOR_ADVANCED {
         txtfield.setHorizontalAlignment(JTextField.RIGHT);
 
 
-
+        
 
         //My name:
 
@@ -114,7 +116,7 @@ public class GUI5_CALCULATOR_ADVANCED {
             try{
                     num1 =Double.parseDouble(txtfield.getText());
                     operator = '+';
-                    txtfield.setText("");
+                    txtfield.setText(txtfield.getText()+"+");
                     showoperator.setText("+");
             }catch(java.lang.NumberFormatException v){
                 showoperator.setText("+");
@@ -130,7 +132,7 @@ public class GUI5_CALCULATOR_ADVANCED {
             try{
                     num1 = Double.parseDouble(txtfield.getText());
                     operator = '-';
-                    txtfield.setText("");
+                    txtfield.setText(txtfield.getText()+"-");
                     showoperator.setText("-");
             }catch(java.lang.NumberFormatException v){
                 showoperator.setText("-");
@@ -176,14 +178,20 @@ public class GUI5_CALCULATOR_ADVANCED {
         equal.setFont(new Font("ubuntu", Font.BOLD, 22));
         equal.addActionListener(e -> {
             try{
+            int plusin = txtfield.getText().indexOf('+');
+            int minusin = txtfield.getText().indexOf('-');
             String number = txtfield.getText();
+            String numafp = txtfield.getText().substring(plusin + 1);
+            String numafm = number.substring(minusin+1); 
 
-            if(!number.equals(String.valueOf(result))){
-                num2 = Double.parseDouble(txtfield.getText());
-                num3 = num2;
-            }else{
-                num2 = num3;
+            if(plusin != -1){
+                num2 = Double.parseDouble(numafp);
+            }else if(minusin != -1){
+                num2 = Double.parseDouble(numafm);
             }
+
+
+
             switch (operator){
                 case '+': result = num1 + num2; break;
                 case '-':  result = num1 -  num2; break;
@@ -195,7 +203,13 @@ public class GUI5_CALCULATOR_ADVANCED {
                     break;}  
                     catch(ArithmeticException v)  {System.out.println();}
             }
-            txtfield.setText(String.valueOf(result));
+
+            if(result == (long)result){
+                txtfield.setText(String.valueOf((long)result));
+            }else{
+                txtfield.setText(String.valueOf(result));
+            }
+
             showoperator.setText("=");
             num1 = result;
         }catch (java.lang.NumberFormatException v){
