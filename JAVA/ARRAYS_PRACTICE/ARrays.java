@@ -1,3 +1,4 @@
+package ARRAYS_PRACTICE;
 public class ARrays {
     public static void main(String[] args) {
         int[][] dot = {
