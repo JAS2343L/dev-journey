@@ -48,11 +48,10 @@ public class Students {
                     } break;
 
                 case 2:
-                    ;
-                    System.out.println(clr+"Sr.no | Name | Roll.no | How-he-is-performing");
+                    System.out.printf(clr+"%-5s | %-12s | %-6s | %s%n", "Sr.No", "Name", "Roll.no", "Performance");
+                    System.out.println("==================================================");
                     for(SINFO m : stdd){
-                        System.out.print(i + ". ");
-                        m.INtro();
+                        m.INtro(i);
                         i++;
                     }
                     System.out.print("\npress Enter to continue.../.");
@@ -67,10 +66,10 @@ public class Students {
                         System.out.println(clr+"There are not any data exist to Delete");
                         break;
                     }else{
-                        System.out.println(clr+"Sr.no | Name | Roll.no | How-he-is-performing");
+                        System.out.printf(clr+"%-5s | %-12s | %-6s | %s%n", "Sr.No", "Name", "Roll.no", "Performance");
+                        System.out.println("==================================================");
                         for(SINFO m : stdd){
-                            System.out.print(i + ". ");
-                            m.INtro();
+                            m.INtro(i);
                             i++;
                         }
                         try{
