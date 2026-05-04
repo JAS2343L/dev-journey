@@ -1,5 +1,4 @@
 package OOPS_PRACTICE.Student_DATA;
-import java.text.BreakIterator;
 import java.util.*;
 
 public class Students {
@@ -13,50 +12,98 @@ public class Students {
         System.out.println(clr);
 
         while(o){
+            int r;
             int choice = 0;
-            System.out.println(clr+"=====/SCHOOL DATABSE/=====");
+            System.out.println("=====/SCHOOL DATABSE/=====");
             System.out.println("1. New Student");
             System.out.println("2. View Existing Student's");
-            System.out.println("3. Exit");
+            System.out.println("3. Delete Student Information");
+            System.out.println("4. Exit");
             System.out.print("Your Choice: ");
-            choice = scn.nextInt();
-            scn.nextLine();
+            try{
+                choice = scn.nextInt();
+                scn.nextLine();
+            }catch(InputMismatchException e){
+                System.out.println();
+                scn.nextLine();
+            }
+
+            int i = 1;
 
             switch(choice){
                 case 1:
-                    System.out.print(clr+"Name Of the student: ");
-                    String n = scn.nextLine();
-                    System.out.print("Declare The Roll.no for the student: ");
-                    int r = scn.nextInt();
-                    scn.nextLine();
-                    System.out.print("How the student is perfoming in class: ");
-                    String gb = scn.nextLine();
-                    stdd.add(new SINFO(n, r, gb));
-                    break;
+                    try{
+                        System.out.print(clr+"Name Of the student: ");
+                        String n = scn.nextLine();
+                        System.out.print("Declare The Roll.no for the student: ");
+                        r = scn.nextInt();
+                        scn.nextLine();
+                        System.out.print("How the student is perfoming in class: ");
+                        String gb = scn.nextLine();
+                        stdd.add(new SINFO(n, r, gb));
+                        System.out.println(clr+"Student added!");
+                    }catch(InputMismatchException e){
+                        System.out.print(clr+"Wrong Roll.no\n");
+                        scn.nextLine();
+                    } break;
 
                 case 2:
-                    System.out.println(clr+"Name, Roll.no, How-he-is-performing");
+                    ;
+                    System.out.println(clr+"Sr.no | Name | Roll.no | How-he-is-performing");
                     for(SINFO m : stdd){
+                        System.out.print(i + ". ");
                         m.INtro();
+                        i++;
                     }
-                    System.out.print("press Enter to continue.../.");
+                    System.out.print("\npress Enter to continue.../.");
                     scn.nextLine();
+                    System.out.print(clr);
                     break;
+
                 case 3:
+                    System.out.println(clr);
+                       
+                    if(stdd.size() <= 0){
+                        System.out.println(clr+"There are not any data exist to Delete");
+                        break;
+                    }else{
+                        System.out.println(clr+"Sr.no | Name | Roll.no | How-he-is-performing");
+                        for(SINFO m : stdd){
+                            System.out.print(i + ". ");
+                            m.INtro();
+                            i++;
+                        }
+                        try{
+                        System.out.print("\nChoose the number or type exit: ");
+                        String toi = scn.nextLine();
+                        if(toi.equalsIgnoreCase("exit")){
+                            System.out.println(clr);
+                            break;
+                        }else{
+                            int hoi = Integer.parseInt(toi);
+                            stdd.remove(hoi - 1);
+                            System.out.println(clr+"Student "+(hoi )+" has been removed!!!");
+                            break;
+                        }
+                    }catch(NumberFormatException e){
+                        System.out.println(clr+"Error, Wrong Choice!!!");
+                    }catch(IndexOutOfBoundsException e){
+                        System.out.println(clr+"Error, Wrong Choice!!!");
+                    }
+                    break;
+                        
+                    }
+
+                case 4:
                     System.out.println(clr);
                     o = false;
                     break;
+                default:
+                    System.out.println(clr+"Error, Wrong Choice!!!");
             }
-            
         }
 
-        /*stdd.add(new SINFO("ABC", 122));
-        stdd.add(new SINFO("DEF", 244));
-        stdd.add(new SINFO("GHI", 365));
-
-            for(SINFO sh : stdd){
-                sh.INtro();
-            }*/
+            scn.close();
         }
 
     public static void main(String[] args) {

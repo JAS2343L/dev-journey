@@ -12,6 +12,6 @@ public class SINFO {
     }
 
     public void INtro(){
-        System.out.println(name +", "+rollno+", "+goodorbad);
+        System.out.println(name +" | "+rollno+" | "+goodorbad);
     }
 }
