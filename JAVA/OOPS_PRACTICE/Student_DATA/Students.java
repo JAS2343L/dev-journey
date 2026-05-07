@@ -1,4 +1,5 @@
 package OOPS_PRACTICE.Student_DATA;
+import java.io.*;
 import java.util.*;
 
 public class Students {
@@ -54,7 +55,8 @@ public class Students {
                         m.INtro(i);
                         i++;
                     }
-                    System.out.print("\npress Enter to continue.../.");
+                    next();
+                    System.out.print("press Enter to continue.../.");
                     scn.nextLine();
                     System.out.print(clr);
                     break;
@@ -73,7 +75,7 @@ public class Students {
                             i++;
                         }
                         try{
-                        System.out.print("\nChoose the number or type exit: ");
+                        System.out.print("\nChoose the Sr.No or type exit: ");
                         String toi = scn.nextLine();
                         if(toi.equalsIgnoreCase("exit")){
                             System.out.println(clr);
@@ -92,6 +94,7 @@ public class Students {
                     break;
                         
                     }
+                    
 
                 case 4:
                     System.out.println(clr);
@@ -107,6 +110,39 @@ public class Students {
 
     public static void main(String[] args) {
         new Students();
+    }
+    
+    public void next(){
+        System.out.println(System.getProperty("line.separator"));
+    }
+
+    public void saaving(ArrayList<SINFO>  list){
+        try (FileWriter w = new FileWriter("/JAVA/OOPS_PRACTICE/Student_DATA/Studentdata.txt")){
+            for (SINFO www : list){
+                w.write(www.toFileFormat() + System.getProperty("line.separator"));
+            }
+            System.out.println("Data Saved To Database");
+        }catch(IOException e){
+            System.out.println("Error saving File!!");
+        }
+    }
+    public void reaading(ArrayList<SINFO> list){
+        File r = new File("/JAVA/OOPS_PRACTICE/Student_DATA/Studentdata.txt");
+        if (!r.exists()){
+            System.out.println("File Not Found, YOU HAVE TO CREATE IT FIRST!!");
+            return;}
+
+        try{
+            Scanner rrr = new Scanner(r);
+            while (rrr.hasNextLine()){
+                String tripler = rrr.nextLine();
+                String[] tok = tripler.split(", ");
+                tripler.add(new SINFO(tok[0], Integer.parseInt(tok[1]), tok[2]));
+            }
+        }catch(Exception e){
+            System.out.println("Cant able to load data!!");
+        }
+        
     }
 
 }

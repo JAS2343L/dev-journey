@@ -12,10 +12,20 @@ public class SINFO {
     }
 
     public void INtro(int srno){
+
 	    // %-6d = 6 space for sr.no(left allignment)
 	    // %-12s = 15 space for name
 	    // %-8d = 8 space for rollno
 	    // %s%n = other left space for goodorbad
+        
         System.out.printf("%-5d | %-12s | %-6d | %s%n",srno,name, rollno, goodorbad);
+    }
+    public String savefile(){
+        return name + ", " + rollno+", "+goodorbad;
+    }
+
+    public String toFileFormat() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'toFileFormat'");
     }
 }
