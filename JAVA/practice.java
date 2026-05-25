@@ -8,7 +8,7 @@ public class practice {
         String cls = "\033[H\033[2J";
         Scanner tooti = new Scanner(System.in);
 
-        System.out.print(cls+"Hello, What is your name ?\ndont want to tell, then type \"exit\" \n:");
+        System.out.print(cls+"Hello, What is your name ?\nDont want to tell, then type \"exit\" \n:");
         nama = tooti.nextLine();
 
         boolean nambad = nama.matches(".*\\d.*");

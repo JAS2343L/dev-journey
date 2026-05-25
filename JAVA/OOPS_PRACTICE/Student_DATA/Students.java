@@ -126,7 +126,7 @@ public class Students {
             System.out.println("Error saving File!!");
         }
     }
-    public void reaading(ArrayList<SINFO> list){
+    /*public void reaading(ArrayList<SINFO> list){
         File r = new File("/JAVA/OOPS_PRACTICE/Student_DATA/Studentdata.txt");
         if (!r.exists()){
             System.out.println("File Not Found, YOU HAVE TO CREATE IT FIRST!!");
@@ -143,6 +143,6 @@ public class Students {
             System.out.println("Cant able to load data!!");
         }
         
-    }
+    }*/
 
 }
