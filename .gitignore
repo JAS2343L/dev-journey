@@ -1,0 +1,12 @@
+# folders
+bin/
+.idea/
+.vscode/
+out/
+venv/
+.venv/
+**/.idea/
+PYTHON/STAR-OS/
+#files 
+Visual-Studio-Code.iml
+

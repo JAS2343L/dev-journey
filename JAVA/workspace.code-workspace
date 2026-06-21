@@ -1,0 +1,11 @@
+{
+	"folders": [],
+	"settings": {
+		"java.debug.settings.onBuildFailureProceed": true,
+		"java.project.sourcePaths": [
+			"JAVA"
+		],
+		"java.project.referencedLibraries": [],
+		"java.format.settings.url": ".vscode/java-formatter.xml"
+	}
+}

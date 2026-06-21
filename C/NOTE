@@ -1,0 +1,5 @@
+%d → number
+%f → decimal
+%c → character
+%s → string
+
