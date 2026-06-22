@@ -8,7 +8,7 @@ while len(username) >= 20:
     username = input('Enter Your Username = ')
 
 password = input('Enter your password = ')
-m_password  = "*" * len(password)
+m_password  = ("*" * len(password))
 
 while len(password) <= 5:
     print("Password can't be LOWER than 5 characters!!")
