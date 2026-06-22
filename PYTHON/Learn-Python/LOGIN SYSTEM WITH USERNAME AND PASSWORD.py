@@ -11,6 +11,7 @@ users = {
     "guest": "0000",
     "k": "k"
 }
+attemps = 3
 
 def login():
     username = input("ENTER USERNAME = ")
@@ -23,7 +24,7 @@ def login():
         print("INVALID USERNAME & PASSWORD!!.\n")
         return False
     
-attemps = 3
+
 while attemps > 0:
     if login():
         break
