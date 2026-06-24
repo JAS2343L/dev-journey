@@ -1,13 +1,23 @@
 import java.util.Scanner;
+import java.io.*;
 
 public class Terminal {
     Scanner scan = new Scanner(System.in);
     final String cls = "\033[H\033[2J";
-    boolean exit = false;
+    private boolean exit = false;
     String uin = "";
 
     Terminal(){
-        System.out.print(cls + "Terminal 1.0 made by Jasmeet\n\n");
+        System.out.print(cls + "Terminal 1.0 made by Jasmeet Singh using JAVA\n\n");
+        whileloop();
+    }
+    
+    public void theusr(){
+        System.out.print("[Kingg@JAVA]$ ");
+        uin = scan.nextLine().trim();
+    }
+    
+    public void whileloop(){
         while(!exit){
             uin = "";
             theusr();
@@ -15,15 +25,49 @@ public class Terminal {
                 exit = true;
             }else if(uin.equals("clear")){
                 System.out.print(cls);
-            }else{
-                System.out.println(uin+"Command Not Found !" );
+            }else if(uin.equals("ls")){
+                ls();
+            }else if(uin.equals("fastfetch")){
+                fastfetch();
+            }
+            else{
+                System.out.println(uin+" : Command Not Found !" );
             }
         }
     }
 
-    public void theusr(){
-        System.out.print("[Kingg@JAVA]$ ");
-        uin = scan.nextLine();
+    public void ls(){
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        processBuilder.command("bash", "-c", "ls");
+        try {
+            Process process = processBuilder.start();
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))){
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    System.out.println(line);
+                }
+            }
+            int exitCode = process.waitFor();
+            if (exitCode != 0) {
+                System.err.println("Command failed with exit code: " + exitCode);
+            }
+
+        } catch (IOException | InterruptedException e) {
+            System.out.print("ERROR running ls!\n");
+        }
+    }
+
+    public void fastfetch(){
+        try{
+            BufferedReader read = new BufferedReader(new FileReader("JAVA/fastfetch.txt"));
+            String line;
+            while((line = read.readLine()) != null){
+                System.out.println(line);
+            } 
+        }catch(IOException e){
+            e.printStackTrace();
+            System.out.print("ERROR running fastfetch!\n");
+        }
     }
 
 
