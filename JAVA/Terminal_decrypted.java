@@ -73,6 +73,7 @@ public class Terminal_decrypted {
             while((line = read.readLine()) != null){
                 System.out.println(line);
             } 
+            read.close();
         }catch(IOException e){
             e.printStackTrace();
             System.out.print("ERROR running fastfetch!\n");
