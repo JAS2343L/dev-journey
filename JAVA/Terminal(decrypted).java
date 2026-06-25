@@ -21,6 +21,13 @@ public class Terminal {
         while(!exit){
             uin = "";
             theusr();
+            /*try{
+                FileWriter his = new FileWriter("JAVA/History.txt", true);
+                his.write(uin + "\n");
+                his.close();
+            }catch(IOException e){
+                e.printStackTrace();
+            }*/
             if(uin.equals("exit")){
                 exit = true;
             }else if(uin.equals("clear")){
@@ -29,6 +36,8 @@ public class Terminal {
                 ls();
             }else if(uin.equals("fastfetch")){
                 fastfetch();
+            }else if(uin.equals("history")){
+                history();
             }
             else{
                 System.out.println(uin+" : Command Not Found !" );
@@ -68,6 +77,15 @@ public class Terminal {
             e.printStackTrace();
             System.out.print("ERROR running fastfetch!\n");
         }
+    }
+    
+    public void history(){
+        try(BufferedReader ht = new BufferedReader(new FileReader("JAVA/History.txt"))){
+            String line;
+            while((line = ht.readLine()) != null){
+                System.out.println(line);
+            }
+        }catch(IOException e){System.out.println("ERROR SHOWING HIS-TORY!");}
     }
 
 

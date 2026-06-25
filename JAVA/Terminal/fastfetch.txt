@@ -1,5 +1,5 @@
-                  -`                     Jasmeet@THUNDER-CORE
-                 .o+`                    --------------------
+                  -`                     KINGG@JAVA
+                 .o+`                    --------------------------------------------------------------
                 `ooo/                    OS: Arch Linux x86_64
                `+oooo:                   Host: H610M H V2 (-CF)
               `+oooooo:                  Kernel: Linux 7.0.12-zen1-1-zen
