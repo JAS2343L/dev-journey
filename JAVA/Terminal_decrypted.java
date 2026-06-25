@@ -1,13 +1,13 @@
 import java.util.Scanner;
 import java.io.*;
 
-public class Terminal {
+public class Terminal_decrypted {
     Scanner scan = new Scanner(System.in);
     final String cls = "\033[H\033[2J";
     private boolean exit = false;
     String uin = "";
 
-    Terminal(){
+    Terminal_decrypted(){
         System.out.print(cls + "Terminal 1.0 made by Jasmeet Singh using JAVA\n\n");
         whileloop();
     }
@@ -90,6 +90,6 @@ public class Terminal {
 
 
     public static void main(String[] args) {
-        new Terminal();
+        new Terminal_decrypted();
     }
 }
