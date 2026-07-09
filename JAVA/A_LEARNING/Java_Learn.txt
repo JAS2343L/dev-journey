@@ -9,19 +9,33 @@ STORES NUMBER WITH DECIMAN:
 
 STORES CHARACTERS:
     char "2bytes" = stores single character/letter value "A"
-    String "varies"
+    String "varies" = Stores many characters/letters
 
 IMPORT:
-    javax.swing.JOptionPane(for Graphics User Interface)
-    java.util.Scanner(for getting input from user)
-    java.util.Random(for Random)
-    java.io.*
+    javax:
+        javax.swing:
+            javax.swing.JOptionPane(for Graphics User Interface)
+
+    java:
+        java.util:
+            java.util.Scanner(for getting input from user)
+            java.util.Random(for Random)
+            java.util.ArrayList(for the use of ArrayList)
+
+        java.io:
+            java.io.*(for file read/write operation)
+
+        java.time:
+            java.time.*(to import time)
+
+MISCELLANOUS:
+    .matches(".*\\d.*") = Checks whether there is an number in string or not.
 
 
 MAIN TO LERN NOW:
     DATA_STRUCTURE={
         ArrayList[][];
-        HashMaps; = key-pair ,     filename(key),    i'ts location(pair);
+        HashMaps; = key-pair ,     filename(key),    it's location(pair);
         String Manipulation;
     }
 
@@ -30,3 +44,8 @@ MAIN TO LERN NOW:
         Constructors;
         Methods;
     }
+
+
+'>' = Less Than;
+'<' = Greather Than;
+'=' = Equals to;

@@ -117,7 +117,7 @@ public class Students {
     }
 
     public void saaving(ArrayList<SINFO>  list){
-        try (FileWriter w = new FileWriter("/JAVA/OOPS_PRACTICE/Student_DATA/Studentdata.txt")){
+        try (FileWriter w = new FileWriter("/JAVA/A_LEARNING/OOPS_PRACTICE/Student_DATA/Studentdata.txt")){
             for (SINFO www : list){
                 w.write(www.toFileFormat() + System.getProperty("line.separator"));
             }
